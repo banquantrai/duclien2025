@@ -1,6 +1,13 @@
 {
     "teams": [
-        "Đoàn Oanh Vũ Nam"
+        "Đoàn Oanh Vũ Nam",
+        "Đoàn Oanh Vũ Nữ",
+        "Đoàn Nam Phật Tử",
+        "Đoàn Nữ Phật Tử",
+        "Đoàn Thiếu Nam",
+        "Đoàn Thiếu Nữ",
+        "Đoàn Thiếu Vũ Nữ",
+        "Đoàn Sen Non"
     ],
     "notes": "Danh sách này loại trừ 'Đoàn Thiếu Nữ', 'Đoàn Oanh Vũ Nam', 'Đoàn Oanh Vũ Nữ' để kiểm tra hiệu ứng ẩn"
 }
