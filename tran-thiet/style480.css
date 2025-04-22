@@ -62,4 +62,11 @@
   .leader span {
     font-size: 0.85rem; /* Adjust font size for leader details */
   }
+
+  .home-link {
+    font-size: 0.8em;
+    padding: 5px 8px;
+    top: 5px;
+    left: 10px;
+  }
 }

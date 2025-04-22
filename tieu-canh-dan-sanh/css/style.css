@@ -1,0 +1,348 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: #f5f6fa;
+}
+
+.background {
+    position: relative;
+    min-height: 95vh;
+    width: 100vw;
+    overflow: hidden;
+    box-shadow: 0 0 80px 0 rgba(0,0,0,0.18) inset;
+}
+
+.avatars {
+    display: none !important;
+}
+
+.avatars-grid {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 700px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+    z-index: 1;
+    padding: 24px 8px; /* thêm padding trên dưới */
+    background: 
+        linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.3)), 
+        url('../assets/tieu_canh.png') no-repeat center center/cover;
+    box-shadow: 0 12px 42px rgba(0,0,0,0.18);
+    backdrop-filter: blur(0px);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    backdrop-filter: blur(2px);
+    justify-content: center; /* căn giữa theo chiều dọc */
+}
+
+.avatars-row {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* canh giữa theo chiều cao nội dung trong row */
+    gap: 0.5vw;
+    margin-bottom: 24px; /* thay vì dùng 2vw */
+    width: 100%;
+}
+
+.avatars-row-1 {
+    margin-bottom: 24px; /* thay vì dùng 2vw */
+}
+
+.avatars-row-2,
+.avatars-row-3 {
+    width: 100%;
+}
+
+/* thêm padding cho row đầu tiên */
+.avatars-row:first-child {
+    padding-top: 10px;
+}
+
+/* thêm padding cho row cuối cùng */
+.avatars-row:last-child {
+    margin-bottom: 10px;
+}
+
+.avatar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 0;
+    min-width: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* bắt đầu với opacity 0 */
+}
+
+.avatar {
+    width: 10vw;
+    max-width: 110px;
+    min-width: 48px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 0 0 6px rgba(255,255,255,0.85);
+    background: linear-gradient(135deg, #fffbe6 60%, #ffe0b2 100%);
+    pointer-events: auto;
+    transition: 
+        transform 0.25s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.25s cubic-bezier(.4,2,.6,1);
+    border: 3px solid #ffe082;
+    outline: 2px solid #fffde7;
+    outline-offset: 2px;
+}
+
+.avatar:hover {
+    transform: scale(1.12) translateY(-6px);
+    box-shadow: 0 16px 48px 0 rgba(255,193,7,0.25), 0 0 0 10px #fffde7;
+    z-index: 2;
+    border-color: #ffd54f;
+}
+
+.avatar-label {
+    margin-top: 0.5em;
+    font-size: 1.08em;
+    color: #7c5700;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 2px 8px #fff, 0 1px 0 #fff;
+    line-height: 1.2;
+    word-break: break-word;
+    max-width: 120px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    padding: 0.4em 0.7em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 1px solid #ffe082;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.5px;
+}
+
+.main-title {
+    margin: 0;
+    padding: 32px 0 12px 0;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #8B4513; /* màu nâu đậm dễ đọc */
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8), 0 1px 0 #fff;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    /* loại bỏ các thuộc tính gradient và fill */
+    /* background: linear-gradient(90deg, #D4AF37 20%, #A0522D 80%); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* background-clip: text; */
+}
+
+.corner-image {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 30vw;
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 8px 32px rgba(255,193,7,0.18));
+    opacity: 0.97;
+    transition: opacity 0.3s;
+}
+
+.corner-image:hover {
+    opacity: 1;
+}
+
+.description {
+    text-align: center;
+    font-size: 1.2em;
+    color: #8B4513;
+    margin: 0 auto 20px;
+    max-width: 800px;
+    padding: 0 20px;
+    line-height: 1.6;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .avatar {
+        width: 13vw;
+        max-width: 90px;
+    }
+    .avatars {
+        bottom: 3%;
+        gap: 1.5vw;
+    }
+    .avatar-label {
+        font-size: 0.98em;
+        max-width: 90px;
+    }
+    .main-title {
+        font-size: 1.6em;
+        padding-top: 20px;
+        padding-bottom: 8px;
+    }
+    .avatars-row {
+        gap: 0.5vw;
+        margin-bottom: 16px; 
+    }
+    .avatars-row-1 {
+        margin-bottom: 16px;
+    }
+    .corner-image {
+        width: 120px;
+        max-width: 22vw;
+    }
+    .avatars-grid {
+        max-width: 98vw;
+        border-radius: 18px;
+    }
+    .description {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+    .home-link {
+        font-size: 0.85em;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .avatar {
+        width: 16vw;
+        max-width: 70px;
+        min-width: 36px;
+    }
+    .avatars {
+        bottom: 2%;
+        padding: 0 1vw;
+        gap: 1vw;
+    }
+    .avatar-label {
+        font-size: 0.9em;
+        max-width: 70px;
+        padding: 0.18em 0.4em;
+    }
+    .main-title {
+        font-size: 1.1em;
+        padding-top: 10px;
+        padding-bottom: 2px;
+    }
+    .avatars-row {
+        gap: 0.2vw;
+        margin-bottom: 12px;
+    }
+    .avatars-row-1 {
+        margin-bottom: 12px;
+    }
+    .corner-image {
+        width: 54px;
+        max-width: 18vw;
+    }
+    .avatars-grid {
+        min-width: 0;
+        border-radius: 10px;
+        padding: 0 2px;
+    }
+    .description {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+    }
+    .home-link {
+        font-size: 0.8em;
+        padding: 5px 8px;
+        top: 5px;
+        left: 10px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animation cho việc hiện và ẩn avatar */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+        visibility: hidden;
+    }
+}
+
+.avatar-item.fade-out {
+    animation: fadeOut 0.8s ease-out forwards;
+    pointer-events: none;
+}
+
+/* Trì hoãn animation cho từng avatar */
+.avatars-row-1 .avatar-item {
+    animation-delay: 0.2s;
+}
+
+.avatars-row-2 .avatar-item:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.avatars-row-2 .avatar-item:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.avatars-row-2 .avatar-item:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.avatars-row-3 .avatar-item:nth-child(1) {
+    animation-delay: 1.0s;
+}
+
+.avatars-row-3 .avatar-item:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.avatars-row-3 .avatar-item:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+.home-link {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.8);
+    border: 1px solid #ffe082;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    z-index: 100;
+    font-size: 0.9em;
+}
+
+.home-link:hover {
+    background-color: rgba(255,243,224,0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}

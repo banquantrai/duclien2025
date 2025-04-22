@@ -60,3 +60,10 @@
     font-size: 0.95rem; /* Adjust font size for leader details */
   }
 }
+
+@media (max-width: 760px) {
+  .home-link {
+    font-size: 0.85em;
+    padding: 6px 10px;
+  }
+}
