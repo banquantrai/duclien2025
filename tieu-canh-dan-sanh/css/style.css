@@ -216,6 +216,9 @@ body, html {
         bottom: 8px; /* cập nhật vị trí cho màn hình nhỏ hơn */
         right: 12px;
     }
+    .footer-note p {
+        font-size: 0.9em;
+    }
 }
 
 @media (max-width: 600px) {
@@ -264,6 +267,13 @@ body, html {
         padding: 5px 8px;
         bottom: 5px; /* cập nhật vị trí cho màn hình nhỏ hơn */
         right: 8px;
+    }
+    .footer-note p {
+        font-size: 0.85em;
+    }
+    .footer-note {
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 }
 
@@ -347,4 +357,23 @@ body, html {
     background-color: rgba(255,243,224,0.9);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.footer-note {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-note p {
+    font-size: 0.95em;
+    color: #8B4513;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-style: italic;
+    opacity: 0.8;
+    line-height: 1.4;
 }
