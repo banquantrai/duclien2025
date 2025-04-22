@@ -213,6 +213,8 @@ body, html {
     .home-link {
         font-size: 0.85em;
         padding: 6px 10px;
+        bottom: 8px; /* cập nhật vị trí cho màn hình nhỏ hơn */
+        right: 12px;
     }
 }
 
@@ -260,8 +262,8 @@ body, html {
     .home-link {
         font-size: 0.8em;
         padding: 5px 8px;
-        top: 5px;
-        left: 10px;
+        bottom: 5px; /* cập nhật vị trí cho màn hình nhỏ hơn */
+        right: 8px;
     }
 }
 
@@ -325,9 +327,9 @@ body, html {
 
 .home-link {
     display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 15px;
+    position: fixed; /* đổi thành fixed để luôn hiển thị ở góc */
+    bottom: 10px; /* đổi từ top thành bottom */
+    right: 15px; /* đổi từ left thành right */
     color: #8B4513;
     text-decoration: none;
     font-weight: 500;
